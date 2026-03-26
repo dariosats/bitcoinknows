@@ -13,19 +13,19 @@
 
     :root {
       --orange: #F7931A;
-      --orange-light: #FFF3E0;
-      --orange-dark: #E8820A;
-      --text: #1A1A2E;
-      --text-secondary: #555770;
-      --text-light: #8888A0;
-      --bg: #FAFAFA;
-      --white: #FFFFFF;
-      --border: #E8E8F0;
-      --section-alt: #F5F5FA;
+      --orange-light: rgba(247,147,26,0.15);
+      --orange-dark: #FFB347;
+      --text: #F0F0F8;
+      --text-secondary: #A0A0BC;
+      --text-light: #60607A;
+      --bg: #0F0F1A;
+      --white: #181828;
+      --border: #2A2A3E;
+      --section-alt: #13132A;
       --radius: 12px;
       --radius-lg: 20px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-      --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-sm: 0 1px 4px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 24px rgba(0,0,0,0.5);
       --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -49,60 +49,58 @@
 
     .section-label {
       display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--orange);
-      background: var(--orange-light);
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 20px;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--orange); background: var(--orange-light);
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
     }
-    .section-title {
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 16px;
+    .section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+    .section-subtitle { font-size: 1.05rem; color: var(--text-secondary); max-width: 600px; line-height: 1.7; margin-bottom: 40px; }
+
+    /* ===== TICKER BAR ===== */
+    #ticker-bar {
+      background: #080810;
+      color: var(--text);
+      padding: 8px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      position: sticky; top: 0; z-index: 1001;
+      border-bottom: 1px solid rgba(247,147,26,0.2);
     }
-    .section-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      line-height: 1.7;
-      margin-bottom: 40px;
-    }
+    .ticker-inner { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
+    .ticker-item { display: flex; align-items: center; gap: 7px; }
+    .ticker-label { color: rgba(255,255,255,0.3); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .ticker-value { color: var(--orange); font-weight: 700; }
+    .ticker-change { font-size: 0.7rem; padding: 2px 5px; border-radius: 4px; }
+    .ticker-change.up { color: #66BB6A; }
+    .ticker-change.down { color: #EF5350; }
+    .ticker-dot { width: 3px; height: 3px; background: rgba(255,255,255,0.15); border-radius: 50%; }
 
     /* ===== NAV ===== */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(250, 250, 250, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      position: sticky; top: 37px; left: 0; right: 0; z-index: 1000;
+      background: rgba(15,15,26,0.92);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       transition: box-shadow var(--transition);
     }
-    nav.scrolled { box-shadow: var(--shadow-sm); }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.6); }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
     .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; color: var(--text); }
     .logo-icon {
       width: 32px; height: 32px; background: var(--orange); border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      color: white; font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 700;
+      color: #0F0F1A; font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 700;
     }
     .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
     .nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--text-secondary); transition: color var(--transition); }
     .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      background: var(--orange); color: white !important; padding: 8px 18px;
-      border-radius: 8px; font-weight: 600; font-size: 0.88rem;
-    }
-    .nav-cta:hover { background: var(--orange-dark); color: white !important; }
+    .nav-cta { background: var(--orange); color: #0F0F1A !important; padding: 8px 18px; border-radius: 8px; font-weight: 600; font-size: 0.88rem; }
+    .nav-cta:hover { background: var(--orange-dark); color: #0F0F1A !important; }
     .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
     .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--text); margin: 5px 0; border-radius: 2px; }
 
     /* ===== HERO ===== */
-    .hero { padding: 150px 0 100px; text-align: center; background: linear-gradient(180deg, var(--white) 0%, var(--bg) 100%); }
+    .hero { padding: 150px 0 100px; text-align: center; background: linear-gradient(180deg, #12121F 0%, var(--bg) 100%); }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--orange-light); color: var(--orange-dark);
@@ -120,16 +118,16 @@
       padding: 14px 28px; border-radius: 10px; font-size: 1rem; font-weight: 600;
       cursor: pointer; border: none; transition: all var(--transition);
     }
-    .btn-primary { background: var(--orange); color: white; box-shadow: 0 4px 14px rgba(247,147,26,0.35); }
-    .btn-primary:hover { background: var(--orange-dark); color: white; transform: translateY(-2px); }
+    .btn-primary { background: var(--orange); color: #0F0F1A; box-shadow: 0 4px 14px rgba(247,147,26,0.4); }
+    .btn-primary:hover { background: var(--orange-dark); color: #0F0F1A; transform: translateY(-2px); }
     .btn-secondary { background: var(--white); color: var(--text); border: 1.5px solid var(--border); }
     .btn-secondary:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
-    .hero-stats { display: flex; justify-content: center; gap: 60px; margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); }
+    .hero-stats { display: flex; justify-content: center; gap: 48px; margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); flex-wrap: wrap; }
     .stat { text-align: center; }
-    .stat-value { font-size: 1.5rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
-    .stat-label { font-size: 0.85rem; color: var(--text-light); margin-top: 4px; }
+    .stat-value { font-size: 1.4rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; color: var(--text); }
+    .stat-label { font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px; }
 
-    /* ===== TABBED SECTIONS ===== */
+    /* ===== TABS ===== */
     .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
     .tab-btn {
       background: var(--white); border: 1.5px solid var(--border); border-radius: 8px;
@@ -137,47 +135,46 @@
       cursor: pointer; transition: all var(--transition); font-family: inherit;
     }
     .tab-btn:hover { border-color: var(--orange); color: var(--orange); }
-    .tab-btn.active { background: var(--orange); color: white; border-color: var(--orange); }
+    .tab-btn.active { background: var(--orange); color: #0F0F1A; border-color: var(--orange); }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    /* ===== RESOURCE LISTS ===== */
-    .resource-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 16px;
-    }
+    /* ===== RESOURCE CARDS — Fix #1: entire card is the link ===== */
+    .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
     .resource-item {
       background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 20px 24px; transition: all var(--transition);
-      display: flex; align-items: flex-start; gap: 14px;
+      transition: all var(--transition); display: block;
     }
     .resource-item:hover { border-color: var(--orange); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .resource-item > a.card-link {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 20px 24px; color: inherit; width: 100%; height: 100%; text-decoration: none;
+    }
+    .resource-item > a.card-link:hover h4 { color: var(--orange); }
+    .resource-item > .card-inner { display: flex; align-items: flex-start; gap: 14px; padding: 20px 24px; }
     .resource-item .r-icon {
       width: 40px; height: 40px; min-width: 40px; background: var(--orange-light);
       border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
     }
-    .resource-item h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; line-height: 1.3; }
-    .resource-item h4 a { color: var(--text); }
-    .resource-item h4 a:hover { color: var(--orange); }
-    .resource-item .r-author { font-size: 0.82rem; color: var(--text-light); }
+    .resource-item h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; line-height: 1.3; color: var(--text); transition: color var(--transition); }
+    .resource-item .r-author { font-size: 0.82rem; color: var(--text-secondary); }
     .resource-item .r-tag {
-      display: inline-block; font-size: 0.7rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.05em;
-      padding: 3px 8px; border-radius: 4px; margin-top: 6px;
+      display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.05em; padding: 3px 8px; border-radius: 4px; margin-top: 6px;
     }
-    .tag-beginner { background: #E8F5E9; color: #2E7D32; }
-    .tag-intermediate { background: #FFF3E0; color: #E65100; }
-    .tag-advanced { background: #FCE4EC; color: #C62828; }
+    .tag-beginner { background: rgba(76,175,80,0.18); color: #81C784; }
+    .tag-intermediate { background: rgba(247,147,26,0.18); color: #FFB347; }
+    .tag-advanced { background: rgba(244,67,54,0.18); color: #EF9A9A; }
     .tag-recommended { background: var(--orange-light); color: var(--orange-dark); }
 
-    /* ===== WHAT IS BITCOIN (kept from V1) ===== */
+    /* ===== WHAT IS BITCOIN ===== */
     .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 48px; }
     .what-visual {
-      background: linear-gradient(135deg, #FFF8F0 0%, #FFF3E0 100%);
-      border-radius: var(--radius-lg); padding: 48px; text-align: center;
+      background: linear-gradient(135deg, #1A1428 0%, #201A0E 100%);
+      border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 48px; text-align: center;
     }
     .btc-symbol { font-family: 'JetBrains Mono', monospace; font-size: 6rem; font-weight: 700; color: var(--orange); line-height: 1; }
-    .btc-label { font-size: 1rem; color: var(--orange-dark); font-weight: 600; margin-top: 12px; }
+    .btc-label { font-size: 1rem; color: var(--orange); font-weight: 600; margin-top: 12px; opacity: 0.75; }
     .what-content h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
     .what-content p { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.02rem; }
     .key-points { list-style: none; }
@@ -186,34 +183,11 @@
 
     /* ===== WHY CARDS ===== */
     .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
-    .card {
-      background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 28px; transition: all var(--transition);
-    }
+    .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; transition: all var(--transition); }
     .card:hover { border-color: var(--orange); box-shadow: var(--shadow-md); transform: translateY(-3px); }
-    .card-icon {
-      width: 44px; height: 44px; background: var(--orange-light); border-radius: 10px;
-      display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;
-    }
+    .card-icon { width: 44px; height: 44px; background: var(--orange-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px; }
     .card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
     .card p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; }
-
-    /* ===== STEPS ===== */
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 48px; position: relative; }
-    .step { text-align: center; }
-    .step-number {
-      width: 52px; height: 52px; background: var(--orange); color: white; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 700;
-      margin: 0 auto 16px; position: relative; z-index: 2;
-    }
-    .step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
-    .step p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
-    .steps::before {
-      content: ''; position: absolute; top: 26px;
-      left: calc(12.5% + 26px); right: calc(12.5% + 26px);
-      height: 2px; background: var(--border); z-index: 1;
-    }
 
     /* ===== FAQ ===== */
     .faq-list { max-width: 720px; margin: 0 auto; }
@@ -227,29 +201,37 @@
     .faq-question:hover { color: var(--orange); }
     .faq-icon {
       width: 28px; height: 28px; min-width: 28px; border-radius: 50%;
-      background: var(--section-alt); display: flex; align-items: center; justify-content: center;
+      background: var(--section-alt); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
       transition: all var(--transition); margin-left: 16px; font-size: 1.2rem; color: var(--text-secondary);
     }
-    .faq-item.active .faq-icon { background: var(--orange-light); color: var(--orange); transform: rotate(45deg); }
+    .faq-item.active .faq-icon { background: var(--orange-light); color: var(--orange); transform: rotate(45deg); border-color: var(--orange); }
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
     .faq-item.active .faq-answer { max-height: 400px; padding-bottom: 22px; }
     .faq-answer p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
 
     /* ===== CTA ===== */
-    .cta-section { background: linear-gradient(135deg, var(--text) 0%, #2A2A40 100%); padding: 72px 0; text-align: center; }
+    .cta-section { background: linear-gradient(135deg, #08080F 0%, #12122A 100%); border-top: 1px solid var(--border); padding: 72px 0; text-align: center; }
     .cta-section .section-label { background: rgba(247,147,26,0.15); }
-    .cta-section .section-title { color: white; }
-    .cta-section p { color: rgba(255,255,255,0.7); font-size: 1.05rem; max-width: 500px; margin: 0 auto 28px; }
+    .cta-section p { color: var(--text-secondary); font-size: 1.05rem; max-width: 500px; margin: 0 auto 28px; }
 
     /* ===== FOOTER ===== */
-    footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 40px 0; font-size: 0.9rem; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; }
-    .footer-logo { display: flex; align-items: center; gap: 10px; font-weight: 600; color: white; font-size: 1rem; }
-    .footer-logo .logo-icon { width: 28px; height: 28px; font-size: 0.85rem; }
-    .footer-links { display: flex; gap: 24px; list-style: none; }
-    .footer-links a { color: rgba(255,255,255,0.5); font-size: 0.85rem; transition: color var(--transition); }
-    .footer-links a:hover { color: white; }
-    .footer-copy { font-size: 0.8rem; }
+    footer { background: #080810; border-top: 1px solid var(--border); color: var(--text-secondary); padding: 40px 0; font-size: 0.9rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text); font-size: 1rem; }
+    .footer-logo .logo-icon { width: 28px; height: 28px; font-size: 0.85rem; color: #0F0F1A; }
+    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-secondary); font-size: 0.85rem; transition: color var(--transition); }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.8rem; opacity: 0.5; }
+    .footer-nostr {
+      width: 100%; padding-top: 16px; border-top: 1px solid var(--border);
+      font-size: 0.75rem; color: var(--text-light);
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .nostr-label { color: var(--orange); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.04em; white-space: nowrap; }
+    .footer-nostr a { color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; word-break: break-all; transition: color var(--transition); }
+    .footer-nostr a:hover { color: var(--orange); }
 
     /* ===== ANIMATIONS ===== */
     .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -259,8 +241,6 @@
     @media (max-width: 900px) {
       section { padding: 64px 0; }
       .cards-grid { grid-template-columns: 1fr 1fr; }
-      .steps { grid-template-columns: 1fr 1fr; gap: 36px; }
-      .steps::before { display: none; }
       .what-grid { grid-template-columns: 1fr; gap: 36px; }
       .resource-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -271,23 +251,54 @@
       .menu-toggle { display: block; }
       .nav-links.open {
         display: flex; flex-direction: column; position: absolute;
-        top: 64px; left: 0; right: 0; background: var(--white);
-        border-bottom: 1px solid var(--border); padding: 24px; gap: 20px;
-        box-shadow: var(--shadow-md);
+        top: 64px; left: 0; right: 0;
+        background: #13132A; border-bottom: 1px solid var(--border);
+        padding: 24px; gap: 20px; box-shadow: var(--shadow-md);
       }
       .hero { padding: 120px 0 70px; }
       .hero h1 { font-size: 2.2rem; }
       .hero-actions { flex-direction: column; align-items: center; }
       .hero-stats { flex-direction: column; gap: 20px; }
       .cards-grid, .resource-grid { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr; gap: 28px; }
       .tabs { gap: 6px; }
       .tab-btn { padding: 8px 14px; font-size: 0.82rem; }
-      .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+      .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+      .ticker-inner { gap: 14px; font-size: 0.74rem; }
+      .footer-nostr { justify-content: center; text-align: center; }
     }
   </style>
 </head>
 <body>
+
+  <!-- ===== TICKER BAR (Mod #2 & #3 & #4) ===== -->
+  <div id="ticker-bar">
+    <div class="container">
+      <div class="ticker-inner">
+        <div class="ticker-item">
+          <span class="ticker-label">BTC/USD</span>
+          <span class="ticker-value" id="ticker-price">…</span>
+          <span class="ticker-change" id="ticker-change"></span>
+        </div>
+        <div class="ticker-dot"></div>
+        <div class="ticker-item">
+          <span class="ticker-label">Nodes</span>
+          <span class="ticker-value" id="ticker-nodes">…</span>
+        </div>
+        <div class="ticker-dot"></div>
+        <div class="ticker-item">
+          <span class="ticker-label">US Debt</span>
+          <a href="https://usdebtclock.org/" target="_blank" rel="noopener" style="text-decoration:none">
+            <span class="ticker-value" id="ticker-debt">…</span>
+          </a>
+        </div>
+        <div class="ticker-dot"></div>
+        <div class="ticker-item">
+          <span class="ticker-label">Max Supply</span>
+          <span class="ticker-value">21,000,000</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== NAVIGATION ===== -->
   <nav id="navbar">
@@ -318,12 +329,33 @@
         <a href="#faq" class="btn btn-secondary">Common Questions</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="stat-value">2009</div><div class="stat-label">Year created</div></div>
-        <div class="stat"><div class="stat-value">21M</div><div class="stat-label">Maximum supply</div></div>
-        <div class="stat"><div class="stat-value">24/7</div><div class="stat-label">Always running</div></div>
         <div class="stat">
-          <div class="stat-value"><a href="https://usdebtclock.org/" target="_blank" rel="noopener" style="color:var(--text)">$$$</a></div>
-          <div class="stat-label"><a href="https://usdebtclock.org/" target="_blank" rel="noopener" style="color:var(--text-light)">U.S. Debt Clock</a></div>
+          <div class="stat-value">2009</div>
+          <div class="stat-label">Year created</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">21M</div>
+          <div class="stat-label">Maximum supply</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">24/7</div>
+          <div class="stat-label">Always running</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="hero-btc-price">…</div>
+          <div class="stat-label">BTC / USD (live)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="hero-nodes">…</div>
+          <div class="stat-label">Reachable nodes</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">
+            <a href="https://usdebtclock.org/" target="_blank" rel="noopener" style="color:var(--text)" id="hero-debt">…</a>
+          </div>
+          <div class="stat-label">
+            <a href="https://usdebtclock.org/" target="_blank" rel="noopener" style="color:var(--text-secondary)">U.S. National Debt (live)</a>
+          </div>
         </div>
       </div>
     </div>
@@ -360,112 +392,28 @@
       <span class="section-label">Understanding Bitcoin</span>
       <h2 class="section-title">See it for yourself</h2>
       <p class="section-subtitle">Start with these videos and foundational readings &mdash; hand-picked to give you the clearest picture of what Bitcoin is and why it was created.</p>
-
       <div class="tabs">
         <button type="button" class="tab-btn active" data-tab="understand-videos">Videos</button>
         <button type="button" class="tab-btn" data-tab="understand-articles">Articles &amp; Essays</button>
       </div>
-
       <div class="tab-panel active" id="understand-videos">
         <div class="resource-grid">
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://youtu.be/JUA9D06kAGY?si=z-yCvEfyliaDGDA2" target="_blank" rel="noopener">11 Minutes From Now, You'll Understand Bitcoin</a></h4>
-              <div class="r-author">Joel Bomgar</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://youtu.be/IAFKJVLNVQA" target="_blank" rel="noopener">Wences Casares Explains Bitcoin</a></h4>
-              <div class="r-author">Wences Casares</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.satsvsfiat.com/#watch" target="_blank" rel="noopener">What is the Problem?</a></h4>
-              <div class="r-author">Joe Bryan</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/watch?v=l1si5ZWLgy0&list=PLt-H3vGMFCsIGPVhh9L7ptX-bsZAtPYmJ" target="_blank" rel="noopener">Introduction to Bitcoin</a></h4>
-              <div class="r-author">Andreas Antonopoulos</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/watch?v=kqsmCUo3xEQ&feature=youtu.be" target="_blank" rel="noopener">A Swiss Bank Account for Everyone's Pocket</a></h4>
-              <div class="r-author">Andreas Antonopoulos</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://youtube.com/playlist?list=PL2jAZ0x9H0bQFY6wIbQfnrnIlqMcSHd6X" target="_blank" rel="noopener">The Saylor Series</a></h4>
-              <div class="r-author">Robert Breedlove &amp; Michael Saylor</div>
-              <span class="r-tag tag-intermediate">Intermediate</span>
-            </div>
-          </div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://youtu.be/JUA9D06kAGY?si=z-yCvEfyliaDGDA2" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>11 Minutes From Now, You'll Understand Bitcoin</h4><div class="r-author">Joel Bomgar</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://youtu.be/IAFKJVLNVQA" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Wences Casares Explains Bitcoin</h4><div class="r-author">Wences Casares</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.satsvsfiat.com/#watch" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>What is the Problem?</h4><div class="r-author">Joe Bryan</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/watch?v=l1si5ZWLgy0&list=PLt-H3vGMFCsIGPVhh9L7ptX-bsZAtPYmJ" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Introduction to Bitcoin</h4><div class="r-author">Andreas Antonopoulos</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/watch?v=kqsmCUo3xEQ&feature=youtu.be" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>A Swiss Bank Account for Everyone's Pocket</h4><div class="r-author">Andreas Antonopoulos</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://youtube.com/playlist?list=PL2jAZ0x9H0bQFY6wIbQfnrnIlqMcSHd6X" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>The Saylor Series</h4><div class="r-author">Robert Breedlove &amp; Michael Saylor</div><span class="r-tag tag-intermediate">Intermediate</span></div></a></div>
         </div>
       </div>
-
       <div class="tab-panel" id="understand-articles">
         <div class="resource-grid">
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128196;</div>
-            <div>
-              <h4><a href="https://cdn.nakamotoinstitute.org/docs/bitcoin.pdf" target="_blank" rel="noopener">Bitcoin: A Peer-to-Peer Electronic Cash System</a></h4>
-              <div class="r-author">Satoshi Nakamoto &mdash; The White Paper</div>
-              <span class="r-tag tag-recommended">Essential</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128196;</div>
-            <div>
-              <h4><a href="https://unchained.com/blog-category/gradually-then-suddenly" target="_blank" rel="noopener">Gradually, Then Suddenly Series</a></h4>
-              <div class="r-author">Parker Lewis</div>
-              <span class="r-tag tag-recommended">Essential</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128196;</div>
-            <div>
-              <h4><a href="https://dergigi.com/2022/04/03/inalienable-property-rights/" target="_blank" rel="noopener">Inalienable Property Rights</a></h4>
-              <div class="r-author">Der Gigi</div>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128196;</div>
-            <div>
-              <h4><a href="https://dergigi.com/2022/12/02/bitcoin-is-the-rediscovery-of-money/" target="_blank" rel="noopener">Bitcoin is the Rediscovery of Money</a></h4>
-              <div class="r-author">Der Gigi</div>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128196;</div>
-            <div>
-              <h4><a href="https://mises.org/mises-wire/road-de-civilization-inflation-and-moral-erosion-society" target="_blank" rel="noopener">The Road to De-Civilization</a></h4>
-              <div class="r-author">Michael Matulef &mdash; Mises Institute</div>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128196;</div>
-            <div>
-              <h4><a href="https://21lessons.com/toc" target="_blank" rel="noopener">21 Lessons</a></h4>
-              <div class="r-author">Der Gigi</div>
-              <span class="r-tag tag-recommended">Essential</span>
-            </div>
-          </div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://cdn.nakamotoinstitute.org/docs/bitcoin.pdf" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Bitcoin: A Peer-to-Peer Electronic Cash System</h4><div class="r-author">Satoshi Nakamoto &mdash; The White Paper</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://unchained.com/blog-category/gradually-then-suddenly" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Gradually, Then Suddenly Series</h4><div class="r-author">Parker Lewis</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://dergigi.com/2022/04/03/inalienable-property-rights/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Inalienable Property Rights</h4><div class="r-author">Der Gigi</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://dergigi.com/2022/12/02/bitcoin-is-the-rediscovery-of-money/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Bitcoin is the Rediscovery of Money</h4><div class="r-author">Der Gigi</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://mises.org/mises-wire/road-de-civilization-inflation-and-moral-erosion-society" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>The Road to De-Civilization</h4><div class="r-author">Michael Matulef &mdash; Mises Institute</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://21lessons.com/toc" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>21 Lessons</h4><div class="r-author">Der Gigi</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
         </div>
       </div>
     </div>
@@ -477,243 +425,53 @@
       <span class="section-label">Why It Matters</span>
       <h2 class="section-title">Why do people use Bitcoin?</h2>
       <p class="section-subtitle">There are many reasons people choose Bitcoin. Here are the most common ones.</p>
-
       <div class="cards-grid">
-        <div class="card fade-up">
-          <div class="card-icon" role="img" aria-label="Lock">&#128274;</div>
-          <h3>You own it &mdash; truly</h3>
-          <p>No bank can freeze your account or tell you what to do with your own money. Bitcoin gives you direct control.</p>
-        </div>
-        <div class="card fade-up">
-          <div class="card-icon" role="img" aria-label="Globe">&#127758;</div>
-          <h3>Send money anywhere</h3>
-          <p>Send value to anyone in the world in minutes, not days. No forms, no intermediaries, no business hours.</p>
-        </div>
-        <div class="card fade-up">
-          <div class="card-icon" role="img" aria-label="Chart">&#128200;</div>
-          <h3>Limited supply</h3>
-          <p>Only 21 million will ever exist. Many see this scarcity as protection against inflation.</p>
-        </div>
-        <div class="card fade-up">
-          <div class="card-icon" role="img" aria-label="Eyes">&#128064;</div>
-          <h3>Transparent system</h3>
-          <p>Every transaction is recorded on a public ledger. The rules are clear and can't be changed by any single entity.</p>
-        </div>
-        <div class="card fade-up">
-          <div class="card-icon" role="img" aria-label="Lightning">&#9889;</div>
-          <h3>Low-cost transfers</h3>
-          <p>Much cheaper than wire transfers, especially internationally. Layer 2 makes small payments nearly free.</p>
-        </div>
-        <div class="card fade-up">
-          <div class="card-icon" role="img" aria-label="People">&#128101;</div>
-          <h3>Financial access</h3>
-          <p>Billions lack banking access. Bitcoin only requires an internet connection.</p>
-        </div>
+        <div class="card fade-up"><div class="card-icon">&#128274;</div><h3>You own it &mdash; truly</h3><p>No bank can freeze your account or tell you what to do with your own money. Bitcoin gives you direct control.</p></div>
+        <div class="card fade-up"><div class="card-icon">&#127758;</div><h3>Send money anywhere</h3><p>Send value to anyone in the world in minutes, not days. No forms, no intermediaries, no business hours.</p></div>
+        <div class="card fade-up"><div class="card-icon">&#128200;</div><h3>Limited supply</h3><p>Only 21 million will ever exist. Many see this scarcity as protection against inflation.</p></div>
+        <div class="card fade-up"><div class="card-icon">&#128064;</div><h3>Transparent system</h3><p>Every transaction is recorded on a public ledger. The rules are clear and can't be changed by any single entity.</p></div>
+        <div class="card fade-up"><div class="card-icon">&#9889;</div><h3>Low-cost transfers</h3><p>Much cheaper than wire transfers, especially internationally. Layer 2 makes small payments nearly free.</p></div>
+        <div class="card fade-up"><div class="card-icon">&#128101;</div><h3>Financial access</h3><p>Billions lack banking access. Bitcoin only requires an internet connection.</p></div>
       </div>
-
-      <!-- Deep Dives & Cypherpunk -->
       <div style="margin-top:64px;">
         <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:8px;">Go deeper</h3>
         <p class="section-subtitle">For those ready to explore the ideas and history behind Bitcoin.</p>
-
         <div class="tabs">
           <button type="button" class="tab-btn active" data-tab="why-deepdives">Deep Dives</button>
           <button type="button" class="tab-btn" data-tab="why-cypherpunk">Cypherpunk Movement</button>
         </div>
-
         <div class="tab-panel active" id="why-deepdives">
           <div class="resource-grid">
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://pierre-rochard.medium.com/understanding-the-technical-side-of-bitcoin-2c212dd65c09" target="_blank" rel="noopener">Understanding the Technical Side of Bitcoin</a></h4>
-                <div class="r-author">Pierre Rochard</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://dergigi.com/2021/11/02/magic-internet-money/" target="_blank" rel="noopener">Magic Internet Money</a></h4>
-                <div class="r-author">Der Gigi</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://www.ten31.xyz/insights/quantum-computing-bitcoin-security" target="_blank" rel="noopener">Quantum Leap? Bitcoin &amp; Quantum Computing</a></h4>
-                <div class="r-author">Ten31</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://dergigi.com/2021/08/02/implications-of-outlawing-bitcoin/" target="_blank" rel="noopener">Implications of Outlawing Bitcoin</a></h4>
-                <div class="r-author">Der Gigi</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://unchained.com/blog/bitcoin-is-not-a-pyramid-scheme" target="_blank" rel="noopener">Bitcoin is Not a Pyramid Scheme</a></h4>
-                <div class="r-author">Parker Lewis</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://unchained.com/blog/bitcoin-is-not-backed-by-nothing" target="_blank" rel="noopener">Bitcoin is Not Backed by Nothing</a></h4>
-                <div class="r-author">Parker Lewis</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/mempool/everyones-a-scammer/" target="_blank" rel="noopener">Everyone's a Scammer</a></h4>
-                <div class="r-author">Michael Goldstein</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/mempool/speculative-attack/" target="_blank" rel="noopener">Speculative Attack</a></h4>
-                <div class="r-author">Pierre Rochard</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://bitcoinmagazine.com/culture/what-makes-bitcoin-different-from-crypto" target="_blank" rel="noopener">What Sets Bitcoin Apart From Other Cryptos</a></h4>
-                <div class="r-author">Craig Deutsch &mdash; Bitcoin Magazine</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://dergigi.com/2020/04/27/dear-family-dear-friends/" target="_blank" rel="noopener">Dear Family &amp; Friends</a></h4>
-                <div class="r-author">Der Gigi</div>
-                <span class="r-tag tag-recommended">Great starting point</span>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://www.lynalden.com/invest-in-bitcoin/" target="_blank" rel="noopener">3 Reasons I'm Investing in Bitcoin</a></h4>
-                <div class="r-author">Lyn Alden</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://armantheparman.com/bitcoin-english/" target="_blank" rel="noopener">A Not Too Technical Overview of This Bitcoin Thing</a></h4>
-                <div class="r-author">Arman the Parman</div>
-                <span class="r-tag tag-beginner">Beginner</span>
-              </div>
-            </div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://pierre-rochard.medium.com/understanding-the-technical-side-of-bitcoin-2c212dd65c09" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Understanding the Technical Side of Bitcoin</h4><div class="r-author">Pierre Rochard</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://dergigi.com/2021/11/02/magic-internet-money/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Magic Internet Money</h4><div class="r-author">Der Gigi</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://www.ten31.xyz/insights/quantum-computing-bitcoin-security" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Quantum Leap? Bitcoin &amp; Quantum Computing</h4><div class="r-author">Ten31</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://dergigi.com/2021/08/02/implications-of-outlawing-bitcoin/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Implications of Outlawing Bitcoin</h4><div class="r-author">Der Gigi</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://unchained.com/blog/bitcoin-is-not-a-pyramid-scheme" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Bitcoin is Not a Pyramid Scheme</h4><div class="r-author">Parker Lewis</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://unchained.com/blog/bitcoin-is-not-backed-by-nothing" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Bitcoin is Not Backed by Nothing</h4><div class="r-author">Parker Lewis</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/mempool/everyones-a-scammer/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Everyone's a Scammer</h4><div class="r-author">Michael Goldstein</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/mempool/speculative-attack/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Speculative Attack</h4><div class="r-author">Pierre Rochard</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://bitcoinmagazine.com/culture/what-makes-bitcoin-different-from-crypto" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>What Sets Bitcoin Apart From Other Cryptos</h4><div class="r-author">Craig Deutsch &mdash; Bitcoin Magazine</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://dergigi.com/2020/04/27/dear-family-dear-friends/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Dear Family &amp; Friends</h4><div class="r-author">Der Gigi</div><span class="r-tag tag-recommended">Great starting point</span></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://www.lynalden.com/invest-in-bitcoin/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>3 Reasons I'm Investing in Bitcoin</h4><div class="r-author">Lyn Alden</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://armantheparman.com/bitcoin-english/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>A Not Too Technical Overview of This Bitcoin Thing</h4><div class="r-author">Arman the Parman</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
           </div>
         </div>
-
         <div class="tab-panel" id="why-cypherpunk">
           <div class="resource-grid">
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#9654;</div>
-              <div>
-                <h4><a href="https://www.youtube.com/playlist?list=PLBuns9Evn1w-T2RwqMhUnTZbTTe-M-g42" target="_blank" rel="noopener">Cypherpunks Write Code (Video Series)</a></h4>
-                <div class="r-author">Documentary</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/crypto-anarchist-manifesto/" target="_blank" rel="noopener">Crypto Anarchist Manifesto</a></h4>
-                <div class="r-author">Tim May</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/shelling-out/" target="_blank" rel="noopener">Shelling Out: The Origins of Money</a></h4>
-                <div class="r-author">Nick Szabo</div>
-                <span class="r-tag tag-recommended">Essential</span>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/cypherpunk-manifesto/" target="_blank" rel="noopener">A Cypherpunk's Manifesto</a></h4>
-                <div class="r-author">Eric Hughes</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/right-to-read/" target="_blank" rel="noopener">The Right to Read</a></h4>
-                <div class="r-author">Richard Stallman</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/why-i-wrote-pgp/" target="_blank" rel="noopener">Why I Wrote PGP</a></h4>
-                <div class="r-author">Philip Zimmermann</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/digital-cash-and-privacy/" target="_blank" rel="noopener">Digital Cash &amp; Privacy</a></h4>
-                <div class="r-author">Hal Finney</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/b-money/" target="_blank" rel="noopener">B-money</a></h4>
-                <div class="r-author">Wei Dai</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/cyberspace-independence/" target="_blank" rel="noopener">A Declaration of the Independence of Cyberspace</a></h4>
-                <div class="r-author">John Perry Barlow</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/the-case-for-privacy/" target="_blank" rel="noopener">The Case for Privacy</a></h4>
-                <div class="r-author">David Friedman</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/cyberspace-crypto-anarchy-and-pushing-limits/" target="_blank" rel="noopener">Cyberspace, Crypto Anarchy and Pushing the Limits</a></h4>
-                <div class="r-author">Tim May</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/static/docs/julian-assange-conspiracies.pdf" target="_blank" rel="noopener">State and Terrorist Conspiracies</a></h4>
-                <div class="r-author">Julian Assange</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128196;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/bitcoin-and-me/" target="_blank" rel="noopener">Bitcoin and Me</a></h4>
-                <div class="r-author">Hal Finney</div>
-              </div>
-            </div>
-            <div class="resource-item fade-up">
-              <div class="r-icon">&#128218;</div>
-              <div>
-                <h4><a href="https://nakamotoinstitute.org/literature/" target="_blank" rel="noopener">The Satoshi Nakamoto Institute Library</a></h4>
-                <div class="r-author">Full collection of foundational texts</div>
-                <span class="r-tag tag-recommended">Essential</span>
-              </div>
-            </div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/playlist?list=PLBuns9Evn1w-T2RwqMhUnTZbTTe-M-g42" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Cypherpunks Write Code (Video Series)</h4><div class="r-author">Documentary</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/crypto-anarchist-manifesto/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Crypto Anarchist Manifesto</h4><div class="r-author">Tim May</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/shelling-out/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Shelling Out: The Origins of Money</h4><div class="r-author">Nick Szabo</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/cypherpunk-manifesto/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>A Cypherpunk's Manifesto</h4><div class="r-author">Eric Hughes</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/right-to-read/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>The Right to Read</h4><div class="r-author">Richard Stallman</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/why-i-wrote-pgp/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Why I Wrote PGP</h4><div class="r-author">Philip Zimmermann</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/digital-cash-and-privacy/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Digital Cash &amp; Privacy</h4><div class="r-author">Hal Finney</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/b-money/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>B-money</h4><div class="r-author">Wei Dai</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/cyberspace-independence/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>A Declaration of the Independence of Cyberspace</h4><div class="r-author">John Perry Barlow</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/the-case-for-privacy/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>The Case for Privacy</h4><div class="r-author">David Friedman</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/cyberspace-crypto-anarchy-and-pushing-limits/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Cyberspace, Crypto Anarchy and Pushing the Limits</h4><div class="r-author">Tim May</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/static/docs/julian-assange-conspiracies.pdf" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>State and Terrorist Conspiracies</h4><div class="r-author">Julian Assange</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/bitcoin-and-me/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Bitcoin and Me</h4><div class="r-author">Hal Finney</div></div></a></div>
+            <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/literature/" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Satoshi Nakamoto Institute Library</h4><div class="r-author">Full collection of foundational texts</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
           </div>
         </div>
       </div>
@@ -726,225 +484,51 @@
       <span class="section-label">Building Resilience</span>
       <h2 class="section-title">How to get started</h2>
       <p class="section-subtitle">From choosing a wallet to buying your first sats &mdash; practical steps to take control of your financial future.</p>
-
       <div class="tabs">
         <button type="button" class="tab-btn active" data-tab="res-wallets">Wallets</button>
         <button type="button" class="tab-btn" data-tab="res-security">Security</button>
         <button type="button" class="tab-btn" data-tab="res-tutorials">Tutorials</button>
         <button type="button" class="tab-btn" data-tab="res-buy">Buy Bitcoin</button>
       </div>
-
       <div class="tab-panel active" id="res-wallets">
         <div class="resource-grid">
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128241;</div>
-            <div>
-              <h4><a href="https://bluewallet.io/" target="_blank" rel="noopener">Blue Wallet</a></h4>
-              <div class="r-author">Mobile &mdash; Great for beginners</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128241;</div>
-            <div>
-              <h4><a href="https://blockstream.com/green/" target="_blank" rel="noopener">Blockstream Green</a></h4>
-              <div class="r-author">Mobile &amp; Desktop</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128272;</div>
-            <div>
-              <h4><a href="https://bitkey.world/" target="_blank" rel="noopener">Bitkey (by Block)</a></h4>
-              <div class="r-author">Hardware wallet &mdash; Simple setup</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128272;</div>
-            <div>
-              <h4><a href="https://coldcard.com/" target="_blank" rel="noopener">Coldcard</a></h4>
-              <div class="r-author">Hardware wallet &mdash; Air-gapped</div>
-              <span class="r-tag tag-advanced">Advanced</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128272;</div>
-            <div>
-              <h4><a href="https://blockstream.com/jade/" target="_blank" rel="noopener">Blockstream Jade</a></h4>
-              <div class="r-author">Hardware wallet</div>
-              <span class="r-tag tag-intermediate">Intermediate</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128272;</div>
-            <div>
-              <h4><a href="https://seedsigner.com/" target="_blank" rel="noopener">SeedSigner</a></h4>
-              <div class="r-author">DIY signing device</div>
-              <span class="r-tag tag-advanced">Advanced</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128187;</div>
-            <div>
-              <h4><a href="https://bitcoinknots.org/" target="_blank" rel="noopener">Bitcoin Knots</a></h4>
-              <div class="r-author">Full node software</div>
-              <span class="r-tag tag-advanced">Advanced</span>
-            </div>
-          </div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://bluewallet.io/" target="_blank" rel="noopener"><div class="r-icon">&#128241;</div><div><h4>Blue Wallet</h4><div class="r-author">Mobile &mdash; Great for beginners</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://blockstream.com/green/" target="_blank" rel="noopener"><div class="r-icon">&#128241;</div><div><h4>Blockstream Green</h4><div class="r-author">Mobile &amp; Desktop</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://bitkey.world/" target="_blank" rel="noopener"><div class="r-icon">&#128272;</div><div><h4>Bitkey (by Block)</h4><div class="r-author">Hardware wallet &mdash; Simple setup</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://coldcard.com/" target="_blank" rel="noopener"><div class="r-icon">&#128272;</div><div><h4>Coldcard</h4><div class="r-author">Hardware wallet &mdash; Air-gapped</div><span class="r-tag tag-advanced">Advanced</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://blockstream.com/jade/" target="_blank" rel="noopener"><div class="r-icon">&#128272;</div><div><h4>Blockstream Jade</h4><div class="r-author">Hardware wallet</div><span class="r-tag tag-intermediate">Intermediate</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://seedsigner.com/" target="_blank" rel="noopener"><div class="r-icon">&#128272;</div><div><h4>SeedSigner</h4><div class="r-author">DIY signing device</div><span class="r-tag tag-advanced">Advanced</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://bitcoinknots.org/" target="_blank" rel="noopener"><div class="r-icon">&#128187;</div><div><h4>Bitcoin Knots</h4><div class="r-author">Full node software</div><span class="r-tag tag-advanced">Advanced</span></div></a></div>
         </div>
       </div>
-
       <div class="tab-panel" id="res-security">
         <div class="resource-grid">
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/watch?v=xxfUpIV9wRI" target="_blank" rel="noopener">What is a Private Key?</a></h4>
-              <div class="r-author">Andreas Antonopoulos</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/watch?v=A5I55aOgX2o&t=25s" target="_blank" rel="noopener">Key Storage and Best Practices</a></h4>
-              <div class="r-author">Andreas Antonopoulos</div>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/watch?v=vt-zXEsJ61U" target="_blank" rel="noopener">How do I Secure my Bitcoin?</a></h4>
-              <div class="r-author">Andreas Antonopoulos</div>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://youtu.be/GpWH0d06YJM" target="_blank" rel="noopener">How to Buy and Store Bitcoin</a></h4>
-              <div class="r-author">Matt Kratter</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128196;</div>
-            <div>
-              <h4><a href="https://www.econoalchemist.com/post/bitcoin-wallets-for-beginners-part-i" target="_blank" rel="noopener">Bitcoin Wallets for Beginners</a></h4>
-              <div class="r-author">Econoalchemist</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/watch?v=jP7pEgBpaO0" target="_blank" rel="noopener">Optional Passphrases and Seed Storage</a></h4>
-              <div class="r-author">Andreas Antonopoulos</div>
-              <span class="r-tag tag-intermediate">Intermediate</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/watch?v=3zNVDIz6Snw&t=5s" target="_blank" rel="noopener">Are Hardware Wallets Secure Enough?</a></h4>
-              <div class="r-author">Andreas Antonopoulos</div>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://youtu.be/blmUGiYRgag" target="_blank" rel="noopener">When Should You Take Profits on Bitcoin?</a></h4>
-              <div class="r-author">Matt Kratter</div>
-            </div>
-          </div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/watch?v=xxfUpIV9wRI" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>What is a Private Key?</h4><div class="r-author">Andreas Antonopoulos</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/watch?v=A5I55aOgX2o&t=25s" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Key Storage and Best Practices</h4><div class="r-author">Andreas Antonopoulos</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/watch?v=vt-zXEsJ61U" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>How do I Secure my Bitcoin?</h4><div class="r-author">Andreas Antonopoulos</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://youtu.be/GpWH0d06YJM" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>How to Buy and Store Bitcoin</h4><div class="r-author">Matt Kratter</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.econoalchemist.com/post/bitcoin-wallets-for-beginners-part-i" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Bitcoin Wallets for Beginners</h4><div class="r-author">Econoalchemist</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/watch?v=jP7pEgBpaO0" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Optional Passphrases and Seed Storage</h4><div class="r-author">Andreas Antonopoulos</div><span class="r-tag tag-intermediate">Intermediate</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/watch?v=3zNVDIz6Snw&t=5s" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Are Hardware Wallets Secure Enough?</h4><div class="r-author">Andreas Antonopoulos</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://youtu.be/blmUGiYRgag" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>When Should You Take Profits on Bitcoin?</h4><div class="r-author">Matt Kratter</div></div></a></div>
         </div>
       </div>
-
       <div class="tab-panel" id="res-tutorials">
         <div class="resource-grid">
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/@BTCSessions" target="_blank" rel="noopener">BTC Sessions (Full Tutorial Library)</a></h4>
-              <div class="r-author">Step-by-step wallet &amp; Bitcoin tutorials</div>
-              <span class="r-tag tag-recommended">Essential</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/watch?v=DesN85bWmGA" target="_blank" rel="noopener">Blockstream Green Wallet Setup</a></h4>
-              <div class="r-author">BTC Sessions</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://rumble.com/v6op009-bitkey-review.html" target="_blank" rel="noopener">Bitkey Review</a></h4>
-              <div class="r-author">The Atlas Rising Podcast</div>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/playlist?list=PLZKkuPrgFw0axLoDDzxAIYzpZeC_T1i7W" target="_blank" rel="noopener">Coldcard Tutorials</a></h4>
-              <div class="r-author">Advanced hardware wallet setup</div>
-              <span class="r-tag tag-advanced">Advanced</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/watch?v=YMICoRQ68Rg" target="_blank" rel="noopener">Coldcard + Sparrow Setup</a></h4>
-              <div class="r-author">Advanced multisig tutorial</div>
-              <span class="r-tag tag-advanced">Advanced</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9654;</div>
-            <div>
-              <h4><a href="https://www.youtube.com/@SouthernBitcoiner" target="_blank" rel="noopener">Southern Bitcoiner</a></h4>
-              <div class="r-author">YouTube Channel</div>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128196;</div>
-            <div>
-              <h4><a href="https://armantheparman.com/" target="_blank" rel="noopener">Arman the Parman</a></h4>
-              <div class="r-author">In-depth guides &amp; tutorials</div>
-              <span class="r-tag tag-intermediate">Intermediate</span>
-            </div>
-          </div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/@BTCSessions" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>BTC Sessions (Full Tutorial Library)</h4><div class="r-author">Step-by-step wallet &amp; Bitcoin tutorials</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/watch?v=DesN85bWmGA" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Blockstream Green Wallet Setup</h4><div class="r-author">BTC Sessions</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://rumble.com/v6op009-bitkey-review.html" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Bitkey Review</h4><div class="r-author">The Atlas Rising Podcast</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/playlist?list=PLZKkuPrgFw0axLoDDzxAIYzpZeC_T1i7W" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Coldcard Tutorials</h4><div class="r-author">Advanced hardware wallet setup</div><span class="r-tag tag-advanced">Advanced</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/watch?v=YMICoRQ68Rg" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Coldcard + Sparrow Setup</h4><div class="r-author">Advanced multisig tutorial</div><span class="r-tag tag-advanced">Advanced</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/@SouthernBitcoiner" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Southern Bitcoiner</h4><div class="r-author">YouTube Channel</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://armantheparman.com/" target="_blank" rel="noopener"><div class="r-icon">&#128196;</div><div><h4>Arman the Parman</h4><div class="r-author">In-depth guides &amp; tutorials</div><span class="r-tag tag-intermediate">Intermediate</span></div></a></div>
         </div>
       </div>
-
       <div class="tab-panel" id="res-buy">
         <div class="resource-grid">
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#9889;</div>
-            <div>
-              <h4><a href="https://invite.strike.me/WA0Q7K" target="_blank" rel="noopener">Strike</a></h4>
-              <div class="r-author">Low fees &mdash; Lightning network support</div>
-              <span class="r-tag tag-recommended">Recommended</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#127754;</div>
-            <div>
-              <h4><a href="https://river.com/invite?r=B3SM6ACS" target="_blank" rel="noopener">River</a></h4>
-              <div class="r-author">Bitcoin-only exchange &mdash; Auto DCA</div>
-              <span class="r-tag tag-recommended">Recommended</span>
-            </div>
-          </div>
-          <div class="resource-item fade-up">
-            <div class="r-icon">&#128178;</div>
-            <div>
-              <h4><a href="https://cash.app/" target="_blank" rel="noopener">Cash App</a></h4>
-              <div class="r-author">Easy to use &mdash; Withdraw to your own wallet</div>
-              <span class="r-tag tag-beginner">Beginner</span>
-            </div>
-          </div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://invite.strike.me/WA0Q7K" target="_blank" rel="noopener"><div class="r-icon">&#9889;</div><div><h4>Strike</h4><div class="r-author">Low fees &mdash; Lightning network support</div><span class="r-tag tag-recommended">Recommended</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://river.com/invite?r=B3SM6ACS" target="_blank" rel="noopener"><div class="r-icon">&#127754;</div><div><h4>River</h4><div class="r-author">Bitcoin-only exchange &mdash; Auto DCA</div><span class="r-tag tag-recommended">Recommended</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://cash.app/" target="_blank" rel="noopener"><div class="r-icon">&#128178;</div><div><h4>Cash App</h4><div class="r-author">Easy to use &mdash; Withdraw to your own wallet</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
         </div>
       </div>
     </div>
@@ -956,7 +540,6 @@
       <span class="section-label">Join the Community</span>
       <h2 class="section-title">Keep learning</h2>
       <p class="section-subtitle">An ever-growing library of books, tools, channels, and communities curated for your Bitcoin journey.</p>
-
       <div class="tabs">
         <button type="button" class="tab-btn active" data-tab="com-books">Books</button>
         <button type="button" class="tab-btn" data-tab="com-channels">Channels &amp; Pods</button>
@@ -964,106 +547,95 @@
         <button type="button" class="tab-btn" data-tab="com-tools">Tools &amp; Metrics</button>
         <button type="button" class="tab-btn" data-tab="com-learning">Learning</button>
       </div>
-
-      <!-- BOOKS -->
       <div class="tab-panel active" id="com-books">
         <div class="resource-grid">
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/6zTu2cp" target="_blank" rel="noopener">The Bitcoin Standard</a></h4><div class="r-author">Saifedean Ammous</div><span class="r-tag tag-recommended">Essential</span></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/81NnzVs" target="_blank" rel="noopener">The Internet of Money</a></h4><div class="r-author">Andreas Antonopoulos</div><span class="r-tag tag-recommended">Essential</span></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/0WSgTjm" target="_blank" rel="noopener">The Fiat Standard</a></h4><div class="r-author">Saifedean Ammous</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://event.swanbitcoin.com/free-book/" target="_blank" rel="noopener">Inventing Bitcoin</a></h4><div class="r-author">Yan Pritzker &mdash; Free!</div><span class="r-tag tag-beginner">Beginner</span></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/0i3fpqs" target="_blank" rel="noopener">21 Lessons</a></h4><div class="r-author">Der Gigi</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://thebitcoinhandbook.com/" target="_blank" rel="noopener">The Bitcoin Handbook</a></h4><div class="r-author">Anil Patel</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://thepriceoftomorrow.com/" target="_blank" rel="noopener">The Price of Tomorrow</a></h4><div class="r-author">Jeff Booth</div><span class="r-tag tag-recommended">Essential</span></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/4nqXFQu" target="_blank" rel="noopener">The Sovereign Individual</a></h4><div class="r-author">Davidson &amp; Rees-Mogg</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/aDs2YyU" target="_blank" rel="noopener">Broken Money</a></h4><div class="r-author">Lyn Alden</div><span class="r-tag tag-recommended">Essential</span></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/dHDxmiG" target="_blank" rel="noopener">Layered Money</a></h4><div class="r-author">Nik Bhatia</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/dUKuLjn" target="_blank" rel="noopener">Soft War</a></h4><div class="r-author">Jason Lowery</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/3aynrXQ" target="_blank" rel="noopener">The Blocksize War</a></h4><div class="r-author">Jonathan Bier</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/171E3FL" target="_blank" rel="noopener">Thank God for Bitcoin</a></h4><div class="r-author">Bitcoin and Bible Group</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/4khaCVU" target="_blank" rel="noopener">The Big Print</a></h4><div class="r-author">Lawrence Lepard</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/6t81dUF" target="_blank" rel="noopener">Bitcoin and Black America</a></h4><div class="r-author">Isaiah Jackson</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/4kEglZO" target="_blank" rel="noopener">Bitcoin and the American Dream</a></h4><div class="r-author">Bitcoin Policy Group</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/geCMEex" target="_blank" rel="noopener">Bitcoin: Sovereignty Through Mathematics</a></h4><div class="r-author">Knut Svanholm</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/hwGTelH" target="_blank" rel="noopener">Bitcoin: Everything Divided by 21 Million</a></h4><div class="r-author">Knut Svanholm</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/gtdOiSd" target="_blank" rel="noopener">Check Your Financial Privilege</a></h4><div class="r-author">Alex Gladstein</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://rosenbaum.se/book/" target="_blank" rel="noopener">Grokking Bitcoin</a></h4><div class="r-author">Kalle Rosenbaum</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/gYRmYMf" target="_blank" rel="noopener">Bitcoin is Venice</a></h4><div class="r-author">Allen Farrington &amp; Sacha Meyers</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/fNdeqgs" target="_blank" rel="noopener">Principles of Economics</a></h4><div class="r-author">Saifedean Ammous</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/dEZoVAz" target="_blank" rel="noopener">The Dictator's Handbook</a></h4><div class="r-author">Bruce Bueno de Mesquita</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/8JM7Zhg" target="_blank" rel="noopener">Atlas Shrugged</a></h4><div class="r-author">Ayn Rand</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://a.co/d/csumoZx" target="_blank" rel="noopener">The Creature from Jekyll Island</a></h4><div class="r-author">G. Edward Griffin</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://www.amazon.com/Mandibles-Family-2029-2047-Lionel-Shriver/dp/006232828X" target="_blank" rel="noopener">The Mandibles</a></h4><div class="r-author">Lionel Shriver &mdash; Fiction</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://mises.org/library/what-has-government-done-our-money" target="_blank" rel="noopener">What Has Government Done to Our Money?</a></h4><div class="r-author">Murray Rothbard &mdash; Free</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://mises.org/library/anatomy-state" target="_blank" rel="noopener">Anatomy of the State</a></h4><div class="r-author">Murray Rothbard &mdash; Free</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://nakamotoinstitute.org/static/docs/deflation-and-liberty.pdf" target="_blank" rel="noopener">Deflation and Liberty</a></h4><div class="r-author">J&ouml;rg Guido H&uuml;lsmann &mdash; Free PDF</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://anilsaidso.gumroad.com/" target="_blank" rel="noopener">Books by Anil Patel</a></h4><div class="r-author">Gumroad</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://www.bitcoinerbooks.com/" target="_blank" rel="noopener">Bitcoiner Books</a></h4><div class="r-author">Complete book directory</div></div></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/6zTu2cp" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Bitcoin Standard</h4><div class="r-author">Saifedean Ammous</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/81NnzVs" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Internet of Money</h4><div class="r-author">Andreas Antonopoulos</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/0WSgTjm" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Fiat Standard</h4><div class="r-author">Saifedean Ammous</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://event.swanbitcoin.com/free-book/" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Inventing Bitcoin</h4><div class="r-author">Yan Pritzker &mdash; Free!</div><span class="r-tag tag-beginner">Beginner</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/0i3fpqs" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>21 Lessons</h4><div class="r-author">Der Gigi</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://thebitcoinhandbook.com/" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Bitcoin Handbook</h4><div class="r-author">Anil Patel</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://thepriceoftomorrow.com/" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Price of Tomorrow</h4><div class="r-author">Jeff Booth</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/4nqXFQu" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Sovereign Individual</h4><div class="r-author">Davidson &amp; Rees-Mogg</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/aDs2YyU" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Broken Money</h4><div class="r-author">Lyn Alden</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/dHDxmiG" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Layered Money</h4><div class="r-author">Nik Bhatia</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/dUKuLjn" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Soft War</h4><div class="r-author">Jason Lowery</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/3aynrXQ" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Blocksize War</h4><div class="r-author">Jonathan Bier</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/171E3FL" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Thank God for Bitcoin</h4><div class="r-author">Bitcoin and Bible Group</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/4khaCVU" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Big Print</h4><div class="r-author">Lawrence Lepard</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/6t81dUF" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Bitcoin and Black America</h4><div class="r-author">Isaiah Jackson</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/4kEglZO" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Bitcoin and the American Dream</h4><div class="r-author">Bitcoin Policy Group</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/geCMEex" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Bitcoin: Sovereignty Through Mathematics</h4><div class="r-author">Knut Svanholm</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/hwGTelH" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Bitcoin: Everything Divided by 21 Million</h4><div class="r-author">Knut Svanholm</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/gtdOiSd" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Check Your Financial Privilege</h4><div class="r-author">Alex Gladstein</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://rosenbaum.se/book/" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Grokking Bitcoin</h4><div class="r-author">Kalle Rosenbaum</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/gYRmYMf" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Bitcoin is Venice</h4><div class="r-author">Allen Farrington &amp; Sacha Meyers</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/fNdeqgs" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Principles of Economics</h4><div class="r-author">Saifedean Ammous</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/dEZoVAz" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Dictator's Handbook</h4><div class="r-author">Bruce Bueno de Mesquita</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/8JM7Zhg" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Atlas Shrugged</h4><div class="r-author">Ayn Rand</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://a.co/d/csumoZx" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Creature from Jekyll Island</h4><div class="r-author">G. Edward Griffin</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.amazon.com/Mandibles-Family-2029-2047-Lionel-Shriver/dp/006232828X" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Mandibles</h4><div class="r-author">Lionel Shriver &mdash; Fiction</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://mises.org/library/what-has-government-done-our-money" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>What Has Government Done to Our Money?</h4><div class="r-author">Murray Rothbard &mdash; Free</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://mises.org/library/anatomy-state" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Anatomy of the State</h4><div class="r-author">Murray Rothbard &mdash; Free</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://nakamotoinstitute.org/static/docs/deflation-and-liberty.pdf" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Deflation and Liberty</h4><div class="r-author">J&ouml;rg Guido H&uuml;lsmann &mdash; Free PDF</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://anilsaidso.gumroad.com/" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Books by Anil Patel</h4><div class="r-author">Gumroad</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.bitcoinerbooks.com/" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Bitcoiner Books</h4><div class="r-author">Complete book directory</div></div></a></div>
         </div>
       </div>
-
-      <!-- CHANNELS & PODCASTS -->
       <div class="tab-panel" id="com-channels">
         <div class="resource-grid">
-          <div class="resource-item fade-up"><div class="r-icon">&#9654;</div><div><h4><a href="https://www.youtube.com/@Bitcoin_University/videos" target="_blank" rel="noopener">Bitcoin University</a></h4><div class="r-author">Matt Kratter</div><span class="r-tag tag-recommended">Highly Recommended</span></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#9654;</div><div><h4><a href="https://www.youtube.com/@aantonop/videos" target="_blank" rel="noopener">Andreas Antonopoulos</a></h4><div class="r-author">YouTube Channel</div><span class="r-tag tag-recommended">Highly Recommended</span></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#9654;</div><div><h4><a href="https://www.youtube.com/c/btcsessions" target="_blank" rel="noopener">BTC Sessions</a></h4><div class="r-author">Tutorials &amp; how-to's</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#127911;</div><div><h4><a href="https://podcasts.apple.com/us/podcast/rabbit-hole-recap/id1622698349" target="_blank" rel="noopener">Rabbit Hole Recap</a></h4><div class="r-author">Podcast</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#127911;</div><div><h4><a href="https://citadeldispatch.com/" target="_blank" rel="noopener">Citadel Dispatch</a></h4><div class="r-author">Podcast &amp; community discussions</div></div></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/@Bitcoin_University/videos" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Bitcoin University</h4><div class="r-author">Matt Kratter</div><span class="r-tag tag-recommended">Highly Recommended</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/@aantonop/videos" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>Andreas Antonopoulos</h4><div class="r-author">YouTube Channel</div><span class="r-tag tag-recommended">Highly Recommended</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.youtube.com/c/btcsessions" target="_blank" rel="noopener"><div class="r-icon">&#9654;</div><div><h4>BTC Sessions</h4><div class="r-author">Tutorials &amp; how-to's</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://podcasts.apple.com/us/podcast/rabbit-hole-recap/id1622698349" target="_blank" rel="noopener"><div class="r-icon">&#127911;</div><div><h4>Rabbit Hole Recap</h4><div class="r-author">Podcast</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://citadeldispatch.com/" target="_blank" rel="noopener"><div class="r-icon">&#127911;</div><div><h4>Citadel Dispatch</h4><div class="r-author">Podcast &amp; community discussions</div></div></a></div>
         </div>
       </div>
-
-      <!-- SITES & BLOGS -->
       <div class="tab-panel" id="com-sites">
         <div class="resource-grid">
-          <div class="resource-item fade-up"><div class="r-icon">&#127760;</div><div><h4><a href="https://dergigi.com/" target="_blank" rel="noopener">Der Gigi</a></h4><div class="r-author">Essays &amp; philosophy</div><span class="r-tag tag-recommended">Highly Recommended</span></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#127760;</div><div><h4><a href="https://unchained.com/blog/category/gradually-then-suddenly/" target="_blank" rel="noopener">Gradually Then Suddenly</a></h4><div class="r-author">Parker Lewis &mdash; Unchained</div><span class="r-tag tag-recommended">Highly Recommended</span></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#127760;</div><div><h4><a href="https://armantheparman.com/bitcoin-english/" target="_blank" rel="noopener">Arman the Parman</a></h4><div class="r-author">Guides &amp; tutorials</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#127760;</div><div><h4><a href="https://bitcoin-only.com/" target="_blank" rel="noopener">Bitcoin-Only.com</a></h4><div class="r-author">Curated Bitcoin resources</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#127760;</div><div><h4><a href="https://werunbtc.com/" target="_blank" rel="noopener">We Run BTC</a></h4><div class="r-author">Matt Odell</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#127760;</div><div><h4><a href="https://tftc.io/" target="_blank" rel="noopener">TFTC (Tales From The Crypt)</a></h4><div class="r-author">News &amp; commentary</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#127760;</div><div><h4><a href="http://welikethecoin.com/" target="_blank" rel="noopener">We Like the Coin</a></h4><div class="r-author">Bryan</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128240;</div><div><h4><a href="https://stacker.news/" target="_blank" rel="noopener">Stacker News</a></h4><div class="r-author">Community news aggregator</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128240;</div><div><h4><a href="https://www.nobsbitcoin.com/" target="_blank" rel="noopener">No BS Bitcoin</a></h4><div class="r-author">News &amp; reviews</div></div></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://dergigi.com/" target="_blank" rel="noopener"><div class="r-icon">&#127760;</div><div><h4>Der Gigi</h4><div class="r-author">Essays &amp; philosophy</div><span class="r-tag tag-recommended">Highly Recommended</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://unchained.com/blog/category/gradually-then-suddenly/" target="_blank" rel="noopener"><div class="r-icon">&#127760;</div><div><h4>Gradually Then Suddenly</h4><div class="r-author">Parker Lewis &mdash; Unchained</div><span class="r-tag tag-recommended">Highly Recommended</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://armantheparman.com/bitcoin-english/" target="_blank" rel="noopener"><div class="r-icon">&#127760;</div><div><h4>Arman the Parman</h4><div class="r-author">Guides &amp; tutorials</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://bitcoin-only.com/" target="_blank" rel="noopener"><div class="r-icon">&#127760;</div><div><h4>Bitcoin-Only.com</h4><div class="r-author">Curated Bitcoin resources</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://werunbtc.com/" target="_blank" rel="noopener"><div class="r-icon">&#127760;</div><div><h4>We Run BTC</h4><div class="r-author">Matt Odell</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://tftc.io/" target="_blank" rel="noopener"><div class="r-icon">&#127760;</div><div><h4>TFTC (Tales From The Crypt)</h4><div class="r-author">News &amp; commentary</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="http://welikethecoin.com/" target="_blank" rel="noopener"><div class="r-icon">&#127760;</div><div><h4>We Like the Coin</h4><div class="r-author">Bryan</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://stacker.news/" target="_blank" rel="noopener"><div class="r-icon">&#128240;</div><div><h4>Stacker News</h4><div class="r-author">Community news aggregator</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.nobsbitcoin.com/" target="_blank" rel="noopener"><div class="r-icon">&#128240;</div><div><h4>No BS Bitcoin</h4><div class="r-author">News &amp; reviews</div></div></a></div>
         </div>
       </div>
-
-      <!-- TOOLS & METRICS -->
       <div class="tab-panel" id="com-tools">
         <div class="resource-grid">
-          <div class="resource-item fade-up"><div class="r-icon">&#128202;</div><div><h4><a href="https://bitcoin.clarkmoody.com/dashboard/" target="_blank" rel="noopener">Clark Moody Dashboard</a></h4><div class="r-author">Key Bitcoin metrics at a glance</div><span class="r-tag tag-recommended">Essential</span></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128202;</div><div><h4><a href="https://mempool.space/" target="_blank" rel="noopener">Mempool.space</a></h4><div class="r-author">Blockchain explorer &amp; fee estimator</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128202;</div><div><h4><a href="https://blockstream.info/" target="_blank" rel="noopener">Blockstream.info</a></h4><div class="r-author">Blockchain explorer</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128202;</div><div><h4><a href="https://bitfeed.live/" target="_blank" rel="noopener">Bitfeed.live</a></h4><div class="r-author">Live transaction visualizer</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128202;</div><div><h4><a href="https://bitcointreasuries.net/" target="_blank" rel="noopener">Bitcoin Treasuries</a></h4><div class="r-author">Corporate &amp; state Bitcoin reserves</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128202;</div><div><h4><a href="https://saylortracker.com/" target="_blank" rel="noopener">Saylor Tracker</a></h4><div class="r-author">Strategy's Bitcoin holdings</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128202;</div><div><h4><a href="https://usdebtclock.org/" target="_blank" rel="noopener">U.S. National Debt Clock</a></h4><div class="r-author">Real-time debt counter</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128202;</div><div><h4><a href="https://www.satsvsfiat.com/" target="_blank" rel="noopener">Sats vs Fiat</a></h4><div class="r-author">Bitcoin purchasing power</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128202;</div><div><h4><a href="https://wtfhappenedin1971.com/" target="_blank" rel="noopener">WTF Happened in 1971?</a></h4><div class="r-author">Visualizing the end of the gold standard</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128202;</div><div><h4><a href="https://www.bitcoinstimulus.net/" target="_blank" rel="noopener">Bitcoin Stimulus</a></h4><div class="r-author">Your stimulus check in Bitcoin</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128202;</div><div><h4><a href="http://timechaincalendar.com/" target="_blank" rel="noopener">Timechain Calendar</a></h4><div class="r-author">Block height &amp; time tracking</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128295;</div><div><h4><a href="https://mempool.space/tools/calculator" target="_blank" rel="noopener">Bitcoin &harr; USD Converter</a></h4><div class="r-author">Mempool.space</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128295;</div><div><h4><a href="https://www.verifybitcoinmessage.com/" target="_blank" rel="noopener">Verify Bitcoin Message</a></h4><div class="r-author">Signature verification tool</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128295;</div><div><h4><a href="https://toolslick.com/programming/hashing/sha-calculator" target="_blank" rel="noopener">SHA-256 Calculator</a></h4><div class="r-author">See hashing in action</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128295;</div><div><h4><a href="https://www.proxynova.com/tools/brute-force-calculator" target="_blank" rel="noopener">Brute Force Calculator</a></h4><div class="r-author">Understand key security</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128295;</div><div><h4><a href="http://howmanyconfs.com/" target="_blank" rel="noopener">How Many Confirmations?</a></h4><div class="r-author">Confirmation comparisons</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128295;</div><div><h4><a href="https://storeoftime.com/" target="_blank" rel="noopener">Store of Time</a></h4><div class="r-author">Inflation calculator</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128295;</div><div><h4><a href="http://reacher.me/" target="_blank" rel="noopener">Reacher</a></h4><div class="r-author">Create a paywall with Bitcoin</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128295;</div><div><h4><a href="https://heyapollo.com/" target="_blank" rel="noopener">Hey Apollo</a></h4><div class="r-author">Trusted Bitcoin product reviews</div></div></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://bitcoin.clarkmoody.com/dashboard/" target="_blank" rel="noopener"><div class="r-icon">&#128202;</div><div><h4>Clark Moody Dashboard</h4><div class="r-author">Key Bitcoin metrics at a glance</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://mempool.space/" target="_blank" rel="noopener"><div class="r-icon">&#128202;</div><div><h4>Mempool.space</h4><div class="r-author">Blockchain explorer &amp; fee estimator</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://blockstream.info/" target="_blank" rel="noopener"><div class="r-icon">&#128202;</div><div><h4>Blockstream.info</h4><div class="r-author">Blockchain explorer</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://bitfeed.live/" target="_blank" rel="noopener"><div class="r-icon">&#128202;</div><div><h4>Bitfeed.live</h4><div class="r-author">Live transaction visualizer</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://bitcointreasuries.net/" target="_blank" rel="noopener"><div class="r-icon">&#128202;</div><div><h4>Bitcoin Treasuries</h4><div class="r-author">Corporate &amp; state Bitcoin reserves</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://saylortracker.com/" target="_blank" rel="noopener"><div class="r-icon">&#128202;</div><div><h4>Saylor Tracker</h4><div class="r-author">Strategy's Bitcoin holdings</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://usdebtclock.org/" target="_blank" rel="noopener"><div class="r-icon">&#128202;</div><div><h4>U.S. National Debt Clock</h4><div class="r-author">Real-time debt counter</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.satsvsfiat.com/" target="_blank" rel="noopener"><div class="r-icon">&#128202;</div><div><h4>Sats vs Fiat</h4><div class="r-author">Bitcoin purchasing power</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://wtfhappenedin1971.com/" target="_blank" rel="noopener"><div class="r-icon">&#128202;</div><div><h4>WTF Happened in 1971?</h4><div class="r-author">Visualizing the end of the gold standard</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.bitcoinstimulus.net/" target="_blank" rel="noopener"><div class="r-icon">&#128202;</div><div><h4>Bitcoin Stimulus</h4><div class="r-author">Your stimulus check in Bitcoin</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="http://timechaincalendar.com/" target="_blank" rel="noopener"><div class="r-icon">&#128202;</div><div><h4>Timechain Calendar</h4><div class="r-author">Block height &amp; time tracking</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://mempool.space/tools/calculator" target="_blank" rel="noopener"><div class="r-icon">&#128295;</div><div><h4>Bitcoin &harr; USD Converter</h4><div class="r-author">Mempool.space</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.verifybitcoinmessage.com/" target="_blank" rel="noopener"><div class="r-icon">&#128295;</div><div><h4>Verify Bitcoin Message</h4><div class="r-author">Signature verification tool</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://toolslick.com/programming/hashing/sha-calculator" target="_blank" rel="noopener"><div class="r-icon">&#128295;</div><div><h4>SHA-256 Calculator</h4><div class="r-author">See hashing in action</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.proxynova.com/tools/brute-force-calculator" target="_blank" rel="noopener"><div class="r-icon">&#128295;</div><div><h4>Brute Force Calculator</h4><div class="r-author">Understand key security</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="http://howmanyconfs.com/" target="_blank" rel="noopener"><div class="r-icon">&#128295;</div><div><h4>How Many Confirmations?</h4><div class="r-author">Confirmation comparisons</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://storeoftime.com/" target="_blank" rel="noopener"><div class="r-icon">&#128295;</div><div><h4>Store of Time</h4><div class="r-author">Inflation calculator</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="http://reacher.me/" target="_blank" rel="noopener"><div class="r-icon">&#128295;</div><div><h4>Reacher</h4><div class="r-author">Create a paywall with Bitcoin</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://heyapollo.com/" target="_blank" rel="noopener"><div class="r-icon">&#128295;</div><div><h4>Hey Apollo</h4><div class="r-author">Trusted Bitcoin product reviews</div></div></a></div>
         </div>
       </div>
-
-      <!-- LEARNING -->
       <div class="tab-panel" id="com-learning">
         <div class="resource-grid">
-          <div class="resource-item fade-up"><div class="r-icon">&#127891;</div><div><h4><a href="https://learn.saylor.org/course/view.php?id=468#" target="_blank" rel="noopener">Bitcoin for Everyone &mdash; Saylor Academy</a></h4><div class="r-author">Free course with certificate</div><span class="r-tag tag-recommended">Essential</span></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#127891;</div><div><h4><a href="http://miprimerbitcoin.io/" target="_blank" rel="noopener">Mi Primer Bitcoin</a></h4><div class="r-author">Bitcoin education in Spanish</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://satoshi.nakamotoinstitute.org/" target="_blank" rel="noopener">The Complete Satoshi</a></h4><div class="r-author">All of Satoshi's writings</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#127760;</div><div><h4><a href="https://www.hope.com/" target="_blank" rel="noopener">Hope.com</a></h4><div class="r-author">Bitcoin education platform</div></div></div>
-          <div class="resource-item fade-up"><div class="r-icon">&#128218;</div><div><h4><a href="https://mises.org/what-has-government-done-our-money" target="_blank" rel="noopener">Mises Institute</a></h4><div class="r-author">Austrian economics library</div></div></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://learn.saylor.org/course/view.php?id=468#" target="_blank" rel="noopener"><div class="r-icon">&#127891;</div><div><h4>Bitcoin for Everyone &mdash; Saylor Academy</h4><div class="r-author">Free course with certificate</div><span class="r-tag tag-recommended">Essential</span></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="http://miprimerbitcoin.io/" target="_blank" rel="noopener"><div class="r-icon">&#127891;</div><div><h4>Mi Primer Bitcoin</h4><div class="r-author">Bitcoin education in Spanish</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://satoshi.nakamotoinstitute.org/" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>The Complete Satoshi</h4><div class="r-author">All of Satoshi's writings</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://www.hope.com/" target="_blank" rel="noopener"><div class="r-icon">&#127760;</div><div><h4>Hope.com</h4><div class="r-author">Bitcoin education platform</div></div></a></div>
+          <div class="resource-item fade-up"><a class="card-link" href="https://mises.org/what-has-government-done-our-money" target="_blank" rel="noopener"><div class="r-icon">&#128218;</div><div><h4>Mises Institute</h4><div class="r-author">Austrian economics library</div></div></a></div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -1076,13 +648,13 @@
         <p class="section-subtitle" style="margin:0 auto 40px;">Honest answers to the things beginners ask most.</p>
       </div>
       <div class="faq-list">
-        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-1">Is Bitcoin safe?<span class="faq-icon">+</span></button><div class="faq-answer" id="faq-1" role="region"><p>The Bitcoin network itself has never been hacked and is secured by enormous computing power. However, like cash, you need to keep it safe. Use reputable wallets, enable security features, and never share your private keys. The most common risks come from user mistakes or scams, not from the technology itself.</p></div></div>
-        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-2">Is it too late to buy Bitcoin?<span class="faq-icon">+</span></button><div class="faq-answer" id="faq-2" role="region"><p>People have asked this at every price point since Bitcoin was worth $1. Whether it's "too late" depends on your goals and time horizon. Many believe Bitcoin adoption is still early. Remember, you don't need to buy a whole Bitcoin &mdash; you can start with any amount, even a few dollars.</p></div></div>
-        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-3">Do I need to buy a whole Bitcoin?<span class="faq-icon">+</span></button><div class="faq-answer" id="faq-3" role="region"><p>No! Bitcoin is divisible to eight decimal places. The smallest unit is called a "satoshi" (or "sat"), and one Bitcoin equals 100 million sats. You can buy as little as a few dollars' worth. Most people own fractions of a Bitcoin.</p></div></div>
-        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-4">Is Bitcoin legal?<span class="faq-icon">+</span></button><div class="faq-answer" id="faq-4" role="region"><p>Bitcoin is legal in most countries, including the United States, Canada, the EU, Japan, and many others. Some countries have restrictions. El Salvador even made it legal tender. Check the regulations in your specific country, as rules vary and can change.</p></div></div>
-        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-5">What about Bitcoin and the environment?<span class="faq-icon">+</span></button><div class="faq-answer" id="faq-5" role="region"><p>Bitcoin mining does use electricity, and this is a legitimate concern. However, the industry is increasingly powered by renewable energy, and some miners use energy that would otherwise be wasted. The debate is ongoing, and it's worth looking at the nuances rather than just headlines.</p></div></div>
-        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-6">How is Bitcoin different from other cryptocurrencies?<span class="faq-icon">+</span></button><div class="faq-answer" id="faq-6" role="region"><p>Bitcoin was the first cryptocurrency and remains the largest by far. It has the longest track record, the most security, and the most decentralized network. Other cryptocurrencies ("altcoins") often have different goals or trade-offs. Many Bitcoin advocates focus exclusively on Bitcoin for its proven reliability.</p></div></div>
-        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-7">Can I lose my Bitcoin?<span class="faq-icon">+</span></button><div class="faq-answer" id="faq-7" role="region"><p>If you lose access to your private keys (or seed phrase) and have no backup, your Bitcoin becomes inaccessible. This is why proper backup is essential. Write down your recovery phrase, store it safely offline, and consider using a hardware wallet for larger amounts.</p></div></div>
+        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false">Is Bitcoin safe?<span class="faq-icon">+</span></button><div class="faq-answer"><p>The Bitcoin network itself has never been hacked and is secured by enormous computing power. However, like cash, you need to keep it safe. Use reputable wallets, enable security features, and never share your private keys. The most common risks come from user mistakes or scams, not from the technology itself.</p></div></div>
+        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false">Is it too late to buy Bitcoin?<span class="faq-icon">+</span></button><div class="faq-answer"><p>People have asked this at every price point since Bitcoin was worth $1. Whether it's "too late" depends on your goals and time horizon. Many believe Bitcoin adoption is still early. Remember, you don't need to buy a whole Bitcoin &mdash; you can start with any amount, even a few dollars.</p></div></div>
+        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false">Do I need to buy a whole Bitcoin?<span class="faq-icon">+</span></button><div class="faq-answer"><p>No! Bitcoin is divisible to eight decimal places. The smallest unit is called a "satoshi" (or "sat"), and one Bitcoin equals 100 million sats. You can buy as little as a few dollars' worth. Most people own fractions of a Bitcoin.</p></div></div>
+        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false">Is Bitcoin legal?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Bitcoin is legal in most countries, including the United States, Canada, the EU, Japan, and many others. Some countries have restrictions. El Salvador even made it legal tender. Check the regulations in your specific country, as rules vary and can change.</p></div></div>
+        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false">What about Bitcoin and the environment?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Bitcoin mining does use electricity, and this is a legitimate concern. However, the industry is increasingly powered by renewable energy, and some miners use energy that would otherwise be wasted. The debate is ongoing, and it's worth looking at the nuances rather than just headlines.</p></div></div>
+        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false">How is Bitcoin different from other cryptocurrencies?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Bitcoin was the first cryptocurrency and remains the largest by far. It has the longest track record, the most security, and the most decentralized network. Other cryptocurrencies ("altcoins") often have different goals or trade-offs. Many Bitcoin advocates focus exclusively on Bitcoin for its proven reliability.</p></div></div>
+        <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false">Can I lose my Bitcoin?<span class="faq-icon">+</span></button><div class="faq-answer"><p>If you lose access to your private keys (or seed phrase) and have no backup, your Bitcoin becomes inaccessible. This is why proper backup is essential. Write down your recovery phrase, store it safely offline, and consider using a hardware wallet for larger amounts.</p></div></div>
       </div>
     </div>
   </section>
@@ -1093,7 +665,7 @@
       <span class="section-label">Ready?</span>
       <h2 class="section-title">Start your Bitcoin journey</h2>
       <p>The best time to learn was yesterday. The second best time is now.</p>
-      <a href="#understand" class="btn btn-primary">Back to Top &uarr;</a>
+      <a href="#top" class="btn btn-primary">Back to Top &uarr;</a>
     </div>
   </section>
 
@@ -1108,61 +680,118 @@
         <li><a href="https://x.com/dariosats" target="_blank" rel="noopener">&#120143; @dariosats</a></li>
       </ul>
       <div class="footer-copy">&copy; 2026 Bitcoin Knows. Educational content only &mdash; not financial advice.</div>
+      <!-- Mod #5: Nostr pubkey -->
+      <div class="footer-nostr">
+        <span class="nostr-label">&#9711; Nostr</span>
+        <a href="https://njump.me/npub1mxv8v5knewevp73ekcc9es8j6q72npa0c8jkhjt6s8reuyup225qgn0kuk" target="_blank" rel="noopener">
+          npub1mxv8v5knewevp73ekcc9es8j6q72npa0c8jkhjt6s8reuyup225qgn0kuk
+        </a>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Nav scroll
+    // ===== NAV SCROLL =====
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
 
-    // Mobile menu
+    // ===== MOBILE MENU =====
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
-    menuToggle.addEventListener('click', (e) => { e.stopPropagation(); navLinks.classList.toggle('open'); });
-    navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('open'); }); });
-    document.addEventListener('click', (e) => { if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) navLinks.classList.remove('open'); });
+    menuToggle.addEventListener('click', e => { e.stopPropagation(); navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.addEventListener('click', e => { if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) navLinks.classList.remove('open'); });
 
-    // Tabs
+    // ===== TABS =====
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const tabId = btn.dataset.tab;
-        const parent = btn.closest('section') || btn.closest('div');
         const group = btn.closest('.tabs');
         group.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        // Find sibling panels
-        let sibling = group.nextElementSibling;
-        while (sibling && sibling.classList.contains('tab-panel')) {
-          sibling.classList.remove('active');
-          if (sibling.id === tabId) sibling.classList.add('active');
-          sibling = sibling.nextElementSibling;
+        let sib = group.nextElementSibling;
+        while (sib && sib.classList.contains('tab-panel')) {
+          sib.classList.toggle('active', sib.id === tabId);
+          sib = sib.nextElementSibling;
         }
       });
     });
 
-    // FAQ
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const item = button.parentElement;
-        const isActive = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(i => {
-          i.classList.remove('active');
-          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        });
-        if (!isActive) { item.classList.add('active'); button.setAttribute('aria-expanded', 'true'); }
+    // ===== FAQ =====
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('active'); i.querySelector('.faq-question').setAttribute('aria-expanded','false'); });
+        if (!wasActive) { item.classList.add('active'); btn.setAttribute('aria-expanded','true'); }
       });
     });
 
-    // Animations
+    // ===== SCROLL ANIMATIONS =====
     if ('IntersectionObserver' in window) {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
     } else {
       document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
     }
+
+    // ===== LIVE DATA =====
+
+    function fmtPrice(n) { return '$' + Math.round(n).toLocaleString(); }
+    function fmtDebt(n) {
+      if (n >= 1e12) return '$' + (n / 1e12).toFixed(2) + 'T';
+      if (n >= 1e9)  return '$' + (n / 1e9).toFixed(1) + 'B';
+      return '$' + n.toLocaleString();
+    }
+    function setAll(ids, val) { ids.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = val; }); }
+
+    // BTC Price — CoinGecko public API
+    async function fetchBTCPrice() {
+      try {
+        const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
+        const d = await r.json();
+        const price = d.bitcoin.usd;
+        const chg   = d.bitcoin.usd_24h_change;
+        setAll(['ticker-price','hero-btc-price'], fmtPrice(price));
+        const chgEl = document.getElementById('ticker-change');
+        if (chgEl) {
+          chgEl.textContent = (chg >= 0 ? '+' : '') + chg.toFixed(2) + '%';
+          chgEl.className = 'ticker-change ' + (chg >= 0 ? 'up' : 'down');
+        }
+      } catch(e) { setAll(['ticker-price','hero-btc-price'], 'N/A'); }
+    }
+
+    // Node count — Bitnodes public API
+    async function fetchNodes() {
+      try {
+        const r = await fetch('https://bitnodes.io/api/v1/snapshots/?limit=1');
+        const d = await r.json();
+        const n = d.results[0].total_nodes.toLocaleString();
+        setAll(['ticker-nodes','hero-nodes'], n);
+      } catch(e) {
+        // Bitnodes has CORS restrictions; show a reasonable estimate
+        setAll(['ticker-nodes','hero-nodes'], '~21,000');
+      }
+    }
+
+    // US Debt — anchored estimate ticking at ~$120K/sec
+    function startDebtTicker() {
+      const ANCHOR = 36500000000000;             // ~$36.5T anchored at March 26 2026 00:00 UTC
+      const T0     = new Date('2026-03-26T00:00:00Z').getTime();
+      const RATE   = 120500 / 1000;             // dollars per millisecond
+      function tick() {
+        const val = fmtDebt(ANCHOR + (Date.now() - T0) * RATE);
+        setAll(['ticker-debt','hero-debt'], val);
+      }
+      tick();
+      setInterval(tick, 1000);
+    }
+
+    fetchBTCPrice();
+    fetchNodes();
+    startDebtTicker();
+    setInterval(fetchBTCPrice, 60000);
+    setInterval(fetchNodes, 300000);
   </script>
 </body>
 </html>
